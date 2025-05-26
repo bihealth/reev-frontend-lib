@@ -92,8 +92,8 @@ export const useSeqvarInfoStore = defineStore('seqvarInfo', () => {
       })
     ])
       .then((): Promise<any> => {
-        if (txCsq.value !== undefined && txCsq.value.length !== 0) {
-          const localHgncId = txCsq.value[0].geneId
+        const localHgncId = txCsq.value && txCsq.value.length > 0 ? txCsq.value[0].geneId : hgncId$
+        if (localHgncId) {
           return Promise.all([
             annonarsClient.fetchGeneInfo(localHgncId).then((data) => {
               for (const gene of data.genes) {
