@@ -39,7 +39,7 @@ export class MehariClient {
     const { genomeBuild, chrom, pos, del, ins } = seqvar
     const hgncSuffix = hgncId ? `&hgnc_id=${hgncId}` : ''
     const url =
-      `${this.apiBaseUrl}/seqvars/csq?genome_release=${genomeBuild}&` +
+      `${this.apiBaseUrl}/api/v1/seqvars/csq?genome_release=${genomeBuild}&` +
       `chromosome=${chrom}&position=${pos}&reference=${del}&` +
       `alternative=${ins}${hgncSuffix}`
 
@@ -74,12 +74,12 @@ export class MehariClient {
     const { svType, genomeBuild, chrom, start } = strucvar
     if (svType === 'BND' || svType === 'INS') {
       url =
-        `${this.apiBaseUrl}/strucvars/csq?genome_release=${genomeBuild}&` +
+        `${this.apiBaseUrl}/api/v1/strucvars/csq?genome_release=${genomeBuild}&` +
         `chromosome=${chrom}&start=${start}&stop=${start + 1}&sv_type=${svType}`
     } else {
       const { stop } = strucvar
       url =
-        `${this.apiBaseUrl}/strucvars/csq?genome_release=${genomeBuild}&` +
+        `${this.apiBaseUrl}/api/v1/strucvars/csq?genome_release=${genomeBuild}&` +
         `chromosome=${chrom}&start=${start}&stop=${stop}&sv_type=${svType}`
     }
 
@@ -120,7 +120,7 @@ export class MehariClient {
   ): Promise<GeneTranscriptsResponse> {
     const urlGenomeBuild = GenomeBuild[genomeBuild]
     const url =
-      `${this.apiBaseUrl}/genes/txs?hgncId=${hgncId}&` +
+      `${this.apiBaseUrl}/api/v1/genes/txs?hgncId=${hgncId}&` +
       `genomeBuild=${urlGenomeBuild}&pageSize=${pageSize}` +
       (nextPageToken ? `&next_page_token=${nextPageToken}` : '')
 

@@ -81,7 +81,7 @@ describe('svInfo store', () => {
     // arrange:
     fetchMocker.mockResponse((req) => {
       const mehariCsqUrl =
-        '/internal/proxy/mehari/strucvars/csq?genome_release=grch37&' +
+        '/internal/proxy/mehari/api/v1/strucvars/csq?genome_release=grch37&' +
         'chromosome=17&start=41176312&stop=41277500&sv_type=DEL'
       const annonarsClinvarUrl =
         '/internal/proxy/annonars/clinvar-sv/query?genomeRelease=grch37&' +
