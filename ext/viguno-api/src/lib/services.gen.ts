@@ -29,7 +29,7 @@ export const hpoGenes = <ThrowOnError extends boolean = false>(
 ) => {
   return (options?.client ?? client).get<HpoGenesResponse, HpoGenesError, ThrowOnError>({
     ...options,
-    url: '/hpo/genes'
+    url: '/api/v1/hpo/genes'
   })
 }
 
@@ -41,7 +41,7 @@ export const hpoOmims = <ThrowOnError extends boolean = false>(
 ) => {
   return (options?.client ?? client).get<HpoOmimsResponse, HpoOmimsError, ThrowOnError>({
     ...options,
-    url: '/hpo/omims'
+    url: '/api/v1/hpo/omims'
   })
 }
 
@@ -55,7 +55,7 @@ export const hpoSimTermGene = <ThrowOnError extends boolean = false>(
   return (options?.client ?? client).get<HpoSimTermGeneResponse, HpoSimTermGeneError, ThrowOnError>(
     {
       ...options,
-      url: '/hpo/sim/term-gene'
+      url: '/api/v1/hpo/sim/term-gene'
     }
   )
 }
@@ -74,7 +74,7 @@ export const hpoSimTermTerm = <ThrowOnError extends boolean = false>(
   return (options?.client ?? client).get<HpoSimTermTermResponse, HpoSimTermTermError, ThrowOnError>(
     {
       ...options,
-      url: '/hpo/sim/term-term'
+      url: '/api/v1/hpo/sim/term-term'
     }
   )
 }
@@ -90,6 +90,6 @@ export const hpoTerms = <ThrowOnError extends boolean = false>(
 ) => {
   return (options?.client ?? client).get<HpoTermsResponse, HpoTermsError, ThrowOnError>({
     ...options,
-    url: '/hpo/terms'
+    url: '/api/v1/hpo/terms'
   })
 }
