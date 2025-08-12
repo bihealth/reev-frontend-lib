@@ -31,7 +31,7 @@ export class VigunoClient {
    * @throws InvalidResponseContent if the response is not valid JSON.
    */
   async resolveOmimTermById(id: string): Promise<HpoOmimsResult> {
-    const url = `${this.apiBaseUrl}/hpo/omims?omim_id=${id}`
+    const url = `${this.apiBaseUrl}/api/v1/hpo/omims?omim_id=${id}`
     const response = await fetch(url, {
       method: 'GET'
     })
@@ -63,7 +63,7 @@ export class VigunoClient {
     matchType: string = 'contains',
     ignoreCase: boolean = true
   ): Promise<HpoOmimsResult> {
-    const url = `${this.apiBaseUrl}/hpo/omims?name=${query}&match=${matchType}&ignore_case=${ignoreCase}`
+    const url = `${this.apiBaseUrl}/api/v1/hpo/omims?name=${query}&match=${matchType}&ignore_case=${ignoreCase}`
     const response = await fetch(url, {
       method: 'GET'
     })
@@ -90,7 +90,7 @@ export class VigunoClient {
    * @throws InvalidResponseContent if the response is not valid JSON.
    */
   async resolveHpoTermById(id: string): Promise<HpoTermResult> {
-    const url = `${this.apiBaseUrl}/hpo/terms?term_id=${id}`
+    const url = `${this.apiBaseUrl}/api/v1/hpo/terms?term_id=${id}`
     const response = await fetch(url, {
       method: 'GET'
     })
@@ -121,7 +121,7 @@ export class VigunoClient {
    * @throws InvalidResponseContent if the response is not valid JSON.
    */
   async queryHpoTermsByName(query: string): Promise<HpoTermResult> {
-    const url = `${this.apiBaseUrl}/hpo/terms?name=${query}`
+    const url = `${this.apiBaseUrl}/api/v1/hpo/terms?name=${query}`
     const response = await fetch(url, {
       method: 'GET'
     })
@@ -148,7 +148,7 @@ export class VigunoClient {
    * @throws InvalidResponseContent if the response is not valid JSON.
    */
   async fetchHpoTermsForHgncId(hgncId: string): Promise<HpoGenesResult> {
-    const url = `${this.apiBaseUrl}/hpo/genes?gene_id=${hgncId}&hpo_terms=true`
+    const url = `${this.apiBaseUrl}/api/v1/hpo/genes?gene_id=${hgncId}&hpo_terms=true`
     const response = await fetch(url, {
       method: 'GET'
     })
