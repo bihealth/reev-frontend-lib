@@ -90,6 +90,30 @@ export interface AlleleCounts {
    * @generated from protobuf field: float freq_homalt = 10;
    */
   freqHomalt: number
+  /**
+   * Number of individuals with hemizygous reference genotypes (biallelic sites only)
+   *
+   * @generated from protobuf field: int32 n_hemiref = 11;
+   */
+  nHemiref: number
+  /**
+   * Number of individuals with hemizygous alternate genotypes (biallelic sites only)
+   *
+   * @generated from protobuf field: int32 n_hemialt = 12;
+   */
+  nHemialt: number
+  /**
+   * Hemizygous reference genotype frequency (biallelic sites only).
+   *
+   * @generated from protobuf field: float freq_hemiref = 13;
+   */
+  freqHemiref: number
+  /**
+   * Hemizygous alternate genotype frequency (biallelic sites only).
+   *
+   * @generated from protobuf field: float freq_hemialt = 14;
+   */
+  freqHemialt: number
 }
 /**
  * Store the allele counts for the given sub cohort and sub cohort factored by sex.
@@ -524,7 +548,11 @@ class AlleleCounts$Type extends MessageType<AlleleCounts> {
       { no: 7, name: 'n_homalt', kind: 'scalar', T: 5 /*ScalarType.INT32*/ },
       { no: 8, name: 'freq_homref', kind: 'scalar', T: 2 /*ScalarType.FLOAT*/ },
       { no: 9, name: 'freq_het', kind: 'scalar', T: 2 /*ScalarType.FLOAT*/ },
-      { no: 10, name: 'freq_homalt', kind: 'scalar', T: 2 /*ScalarType.FLOAT*/ }
+      { no: 10, name: 'freq_homalt', kind: 'scalar', T: 2 /*ScalarType.FLOAT*/ },
+      { no: 11, name: 'n_hemiref', kind: 'scalar', T: 5 /*ScalarType.INT32*/ },
+      { no: 12, name: 'n_hemialt', kind: 'scalar', T: 5 /*ScalarType.INT32*/ },
+      { no: 13, name: 'freq_hemiref', kind: 'scalar', T: 2 /*ScalarType.FLOAT*/ },
+      { no: 14, name: 'freq_hemialt', kind: 'scalar', T: 2 /*ScalarType.FLOAT*/ }
     ])
   }
   create(value?: PartialMessage<AlleleCounts>): AlleleCounts {
@@ -539,6 +567,10 @@ class AlleleCounts$Type extends MessageType<AlleleCounts> {
     message.freqHomref = 0
     message.freqHet = 0
     message.freqHomalt = 0
+    message.nHemiref = 0
+    message.nHemialt = 0
+    message.freqHemiref = 0
+    message.freqHemialt = 0
     if (value !== undefined) reflectionMergePartial<AlleleCounts>(this, message, value)
     return message
   }
@@ -582,6 +614,18 @@ class AlleleCounts$Type extends MessageType<AlleleCounts> {
           break
         case /* float freq_homalt */ 10:
           message.freqHomalt = reader.float()
+          break
+        case /* int32 n_hemiref */ 11:
+          message.nHemiref = reader.int32()
+          break
+        case /* int32 n_hemialt */ 12:
+          message.nHemialt = reader.int32()
+          break
+        case /* float freq_hemiref */ 13:
+          message.freqHemiref = reader.float()
+          break
+        case /* float freq_hemialt */ 14:
+          message.freqHemialt = reader.float()
           break
         default:
           const u = options.readUnknownField
@@ -627,6 +671,14 @@ class AlleleCounts$Type extends MessageType<AlleleCounts> {
     if (message.freqHet !== 0) writer.tag(9, WireType.Bit32).float(message.freqHet)
     /* float freq_homalt = 10; */
     if (message.freqHomalt !== 0) writer.tag(10, WireType.Bit32).float(message.freqHomalt)
+    /* int32 n_hemiref = 11; */
+    if (message.nHemiref !== 0) writer.tag(11, WireType.Varint).int32(message.nHemiref)
+    /* int32 n_hemialt = 12; */
+    if (message.nHemialt !== 0) writer.tag(12, WireType.Varint).int32(message.nHemialt)
+    /* float freq_hemiref = 13; */
+    if (message.freqHemiref !== 0) writer.tag(13, WireType.Bit32).float(message.freqHemiref)
+    /* float freq_hemialt = 14; */
+    if (message.freqHemialt !== 0) writer.tag(14, WireType.Bit32).float(message.freqHemialt)
     const u = options.writeUnknownFields
     if (u !== false) (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer)
     return writer

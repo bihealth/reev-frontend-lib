@@ -15,6 +15,7 @@ import { reflectionMergePartial } from '@protobuf-ts/runtime'
 import { MessageType } from '@protobuf-ts/runtime'
 
 import { Location_SequenceLocation } from './clinvar_public'
+import { ClinicalAssertion } from './clinvar_public'
 import { AggregateClassificationSet } from './clinvar_public'
 import { RcvAccession_RcvClassifications } from './clinvar_public'
 
@@ -98,6 +99,12 @@ export interface ExtractedVcvRecord {
    * @generated from protobuf field: annonars.clinvar_data.clinvar_public.AggregateClassificationSet classifications = 5;
    */
   classifications?: AggregateClassificationSet
+  /**
+   * Clinical assertions (thinned out),
+   *
+   * @generated from protobuf field: repeated annonars.clinvar_data.clinvar_public.ClinicalAssertion clinical_assertions = 8;
+   */
+  clinicalAssertions: ClinicalAssertion[]
   /**
    * The sequence location on one reference.
    *
@@ -385,6 +392,13 @@ class ExtractedVcvRecord$Type extends MessageType<ExtractedVcvRecord> {
         T: () => ['annonars.clinvar_data.extracted_vars.VariationType', VariationType]
       },
       { no: 5, name: 'classifications', kind: 'message', T: () => AggregateClassificationSet },
+      {
+        no: 8,
+        name: 'clinical_assertions',
+        kind: 'message',
+        repeat: 1 /*RepeatType.PACKED*/,
+        T: () => ClinicalAssertion
+      },
       { no: 6, name: 'sequence_location', kind: 'message', T: () => Location_SequenceLocation },
       {
         no: 7,
@@ -400,6 +414,7 @@ class ExtractedVcvRecord$Type extends MessageType<ExtractedVcvRecord> {
     message.rcvs = []
     message.name = ''
     message.variationType = 0
+    message.clinicalAssertions = []
     message.hgncIds = []
     if (value !== undefined) reflectionMergePartial<ExtractedVcvRecord>(this, message, value)
     return message
@@ -438,6 +453,11 @@ class ExtractedVcvRecord$Type extends MessageType<ExtractedVcvRecord> {
             reader.uint32(),
             options,
             message.classifications
+          )
+          break
+        case /* repeated annonars.clinvar_data.clinvar_public.ClinicalAssertion clinical_assertions */ 8:
+          message.clinicalAssertions.push(
+            ClinicalAssertion.internalBinaryRead(reader, reader.uint32(), options)
           )
           break
         case /* annonars.clinvar_data.clinvar_public.Location.SequenceLocation sequence_location */ 6:
@@ -498,6 +518,13 @@ class ExtractedVcvRecord$Type extends MessageType<ExtractedVcvRecord> {
       AggregateClassificationSet.internalBinaryWrite(
         message.classifications,
         writer.tag(5, WireType.LengthDelimited).fork(),
+        options
+      ).join()
+    /* repeated annonars.clinvar_data.clinvar_public.ClinicalAssertion clinical_assertions = 8; */
+    for (let i = 0; i < message.clinicalAssertions.length; i++)
+      ClinicalAssertion.internalBinaryWrite(
+        message.clinicalAssertions[i],
+        writer.tag(8, WireType.LengthDelimited).fork(),
         options
       ).join()
     /* annonars.clinvar_data.clinvar_public.Location.SequenceLocation sequence_location = 6; */

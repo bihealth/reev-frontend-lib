@@ -118,10 +118,10 @@ export class MehariClient {
     pageSize: number = 1000,
     nextPageToken?: string
   ): Promise<GeneTranscriptsResponse> {
-    const urlGenomeBuild = GenomeBuild[genomeBuild]
+    const urlGenomeBuild = genomeBuild === GenomeBuild.GENOME_BUILD_GRCH37 ? 'grch37' : 'grch38'
     const url =
-      `${this.apiBaseUrl}/api/v1/genes/txs?hgncId=${hgncId}&` +
-      `genomeBuild=${urlGenomeBuild}&pageSize=${pageSize}` +
+      `${this.apiBaseUrl}/api/v1/genes/transcripts?hgnc_id=${hgncId}&` +
+      `genome_build=${urlGenomeBuild}&page_size=${pageSize}` +
       (nextPageToken ? `&next_page_token=${nextPageToken}` : '')
 
     const response = await fetch(url, {

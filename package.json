@@ -35,6 +35,7 @@
   },
   "types": "./dist/main.d.ts",
   "scripts": {
+    "test:snap": "vitest --config vitest.config.mts --update",
     "test:unit": "vitest --config vitest.config.mts --coverage",
     "test:unit:nocov": "vitest --config vitest.config.mts",
     "build": "vue-tsc && vite build",
