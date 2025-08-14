@@ -5,7 +5,7 @@
  */
 import equal from 'fast-deep-equal'
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { Ref, ref } from 'vue'
 
 import { StoreState } from '..'
 import { AnnonarsClient, SeqvarInfoResult } from '../../api/annonars'
@@ -15,128 +15,148 @@ import { type Seqvar } from '../../lib/genomicVars'
 import { ClinvarPerGeneRecord } from '../../pbs/annonars/clinvar/per_gene'
 import { Record as GeneInfoRecord } from '../../pbs/annonars/genes/base'
 
-export const useSeqvarInfoStore = defineStore('seqvarInfo', () => {
-  /** The current store state. */
-  const storeState = ref<StoreState>(StoreState.Initial)
+interface SeqvarInfoState {
+  storeState: Ref<StoreState>
+  seqvar: Ref<Seqvar | undefined>
+  hgncId: Ref<string | undefined>
+  varAnnos: Ref<SeqvarInfoResult | undefined>
+  geneClinvar: Ref<ClinvarPerGeneRecord | undefined>
+  geneInfo: Ref<GeneInfoRecord | undefined>
+  hpoTerms: Ref<HpoTerm[]>
+  txCsq: Ref<SeqvarResultEntry[] | undefined>
+  initializeRes: Ref<Promise<any> | undefined>
+}
 
-  /** The Seqvar that the previous record has been retrieved for. */
-  const seqvar = ref<Seqvar | undefined>(undefined)
+export const useSeqvarInfoStore = defineStore(
+  'seqvarInfo',
+  (): SeqvarInfoState & {
+    clearData: () => void
+    initialize: (seqvar$: Seqvar, hgncId$?: string, forceReload?: boolean) => Promise<any>
+  } => {
+    /** The current store state. */
+    const storeState = ref<StoreState>(StoreState.Initial)
 
-  /** The optional HGNC ID to limit the query to. */
-  const hgncId = ref<string | undefined>(undefined)
+    /** The Seqvar that the previous record has been retrieved for. */
+    const seqvar = ref<Seqvar | undefined>(undefined)
 
-  /** Variant-related information from annonars. */
-  const varAnnos = ref<SeqvarInfoResult | undefined>(undefined)
+    /** The optional HGNC ID to limit the query to. */
+    const hgncId = ref<string | undefined>(undefined)
 
-  /** ClinVar gene-related information from annoars. */
-  const geneClinvar = ref<ClinvarPerGeneRecord | undefined>(undefined)
+    /** Variant-related information from annonars. */
+    const varAnnos = ref<SeqvarInfoResult | undefined>(undefined)
 
-  /** Information about related gene. */
-  const geneInfo = ref<GeneInfoRecord | undefined>(undefined)
+    /** ClinVar gene-related information from annoars. */
+    const geneClinvar = ref<ClinvarPerGeneRecord | undefined>(undefined)
 
-  /** The HPO terms retrieved from viguno. */
-  const hpoTerms = ref<HpoTerm[]>([])
+    /** Information about related gene. */
+    const geneInfo = ref<GeneInfoRecord | undefined>(undefined)
 
-  /** Transcript consequence information from mehari. */
-  const txCsq = ref<SeqvarResultEntry[] | undefined>(undefined)
+    /** The HPO terms retrieved from viguno. */
+    const hpoTerms = ref<HpoTerm[]>([])
 
-  /** Promise for initialization of the store. */
-  const initializeRes = ref<Promise<any> | undefined>(undefined)
+    /** Transcript consequence information from mehari. */
+    const txCsq = ref<SeqvarResultEntry[] | undefined>(undefined)
 
-  /** Clear all data in the store. */
-  const clearData = () => {
-    storeState.value = StoreState.Initial
-    seqvar.value = undefined
-    hgncId.value = undefined
-    varAnnos.value = undefined
-    txCsq.value = undefined
-    geneInfo.value = undefined
-    geneClinvar.value = undefined
-  }
+    /** Promise for initialization of the store. */
+    const initializeRes = ref<Promise<any> | undefined>(undefined)
 
-  /**
-   * Initialize and oad data from the server.
-   *
-   * @param seqvar$ The sequence variant to use for the query.
-   * @param hgncId$ Optional HGNC ID to limit the query to.
-   * @param forceReload Whether to force-reload in case the variant is the same.
-   * @returns
-   */
-  const initialize = async (seqvar$: Seqvar, hgncId$?: string, forceReload: boolean = false) => {
-    // Protect against loading multiple times.
-    if (
-      !forceReload &&
-      storeState.value !== StoreState.Initial &&
-      equal(seqvar$, seqvar.value) &&
-      hgncId$ === hgncId.value
-    ) {
+    /** Clear all data in the store. */
+    const clearData = () => {
+      storeState.value = StoreState.Initial
+      seqvar.value = undefined
+      hgncId.value = undefined
+      varAnnos.value = undefined
+      txCsq.value = undefined
+      geneInfo.value = undefined
+      geneClinvar.value = undefined
+    }
+
+    /**
+     * Initialize and oad data from the server.
+     *
+     * @param seqvar$ The sequence variant to use for the query.
+     * @param hgncId$ Optional HGNC ID to limit the query to.
+     * @param forceReload Whether to force-reload in case the variant is the same.
+     * @returns
+     */
+    const initialize = async (seqvar$: Seqvar, hgncId$?: string, forceReload: boolean = false) => {
+      // Protect against loading multiple times.
+      if (
+        !forceReload &&
+        storeState.value !== StoreState.Initial &&
+        equal(seqvar$, seqvar.value) &&
+        hgncId$ === hgncId.value
+      ) {
+        return initializeRes.value
+      }
+
+      // Clear against artifact
+      clearData()
+
+      // Load data via API
+      storeState.value = StoreState.Loading
+      const annonarsClient = new AnnonarsClient()
+      const mehariClient = new MehariClient()
+      const vigunoClient = new VigunoClient()
+
+      // Retrieve variant information from annonars and mehari.
+      initializeRes.value = Promise.all([
+        annonarsClient.fetchVariantInfo(seqvar$).then((data) => {
+          varAnnos.value = data.result
+        }),
+        mehariClient.retrieveSeqvarsCsq(seqvar$, hgncId$).then((data) => {
+          txCsq.value = data.result ?? []
+        })
+      ])
+        .then((): Promise<any> => {
+          const localHgncId =
+            txCsq.value && txCsq.value.length > 0 ? txCsq.value[0].geneId : hgncId$
+          if (localHgncId) {
+            return Promise.all([
+              annonarsClient.fetchGeneInfo(localHgncId).then((data) => {
+                for (const gene of data.genes) {
+                  if (gene.hgnc!.hgncId === localHgncId) {
+                    geneInfo.value = gene
+                  }
+                }
+              }),
+              annonarsClient.fetchGeneClinvarInfo(localHgncId).then((data) => {
+                geneClinvar.value = data
+              }),
+              vigunoClient.fetchHpoTermsForHgncId(localHgncId).then((data) => {
+                hpoTerms.value = data.result
+              })
+            ])
+          } else {
+            return Promise.resolve()
+          }
+        })
+        .then(() => {
+          hgncId.value = hgncId$
+          seqvar.value = seqvar$
+          storeState.value = StoreState.Active
+        })
+        .catch((err) => {
+          console.error('There was an error loading the variant data.', err)
+          clearData()
+          storeState.value = StoreState.Error
+        })
+
       return initializeRes.value
     }
 
-    // Clear against artifact
-    clearData()
-
-    // Load data via API
-    storeState.value = StoreState.Loading
-    const annonarsClient = new AnnonarsClient()
-    const mehariClient = new MehariClient()
-    const vigunoClient = new VigunoClient()
-
-    // Retrieve variant information from annonars and mehari.
-    initializeRes.value = Promise.all([
-      annonarsClient.fetchVariantInfo(seqvar$).then((data) => {
-        varAnnos.value = data.result
-      }),
-      mehariClient.retrieveSeqvarsCsq(seqvar$, hgncId$).then((data) => {
-        txCsq.value = data.result ?? []
-      })
-    ])
-      .then((): Promise<any> => {
-        const localHgncId = txCsq.value && txCsq.value.length > 0 ? txCsq.value[0].geneId : hgncId$
-        if (localHgncId) {
-          return Promise.all([
-            annonarsClient.fetchGeneInfo(localHgncId).then((data) => {
-              for (const gene of data.genes) {
-                if (gene.hgnc!.hgncId === localHgncId) {
-                  geneInfo.value = gene
-                }
-              }
-            }),
-            annonarsClient.fetchGeneClinvarInfo(localHgncId).then((data) => {
-              geneClinvar.value = data
-            }),
-            vigunoClient.fetchHpoTermsForHgncId(localHgncId).then((data) => {
-              hpoTerms.value = data.result
-            })
-          ])
-        } else {
-          return Promise.resolve()
-        }
-      })
-      .then(() => {
-        hgncId.value = hgncId$
-        seqvar.value = seqvar$
-        storeState.value = StoreState.Active
-      })
-      .catch((err) => {
-        console.error('There was an error loading the variant data.', err)
-        clearData()
-        storeState.value = StoreState.Error
-      })
-
-    return initializeRes.value
+    return {
+      initializeRes,
+      storeState,
+      seqvar,
+      varAnnos,
+      geneClinvar,
+      geneInfo,
+      hpoTerms,
+      txCsq,
+      hgncId,
+      initialize,
+      clearData
+    }
   }
-
-  return {
-    initializeRes,
-    storeState,
-    seqvar,
-    varAnnos,
-    geneClinvar,
-    geneInfo,
-    hpoTerms,
-    txCsq,
-    initialize,
-    clearData
-  }
-})
+)
