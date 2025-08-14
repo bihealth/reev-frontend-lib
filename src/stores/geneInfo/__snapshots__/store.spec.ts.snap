@@ -24027,6 +24027,7 @@ exports[`geneInfo Store > should load data 2`] = `
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -24178,6 +24179,7 @@ exports[`geneInfo Store > should load data 2`] = `
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -24425,6 +24427,7 @@ exports[`geneInfo Store > should load data 2`] = `
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -24748,6 +24751,7 @@ exports[`geneInfo Store > should load data 2`] = `
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -24935,6 +24939,7 @@ exports[`geneInfo Store > should load data 2`] = `
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -25086,6 +25091,7 @@ exports[`geneInfo Store > should load data 2`] = `
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -25237,6 +25243,7 @@ exports[`geneInfo Store > should load data 2`] = `
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -25368,6 +25375,7 @@ exports[`geneInfo Store > should load data 2`] = `
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -25559,6 +25567,7 @@ exports[`geneInfo Store > should load data 2`] = `
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -25866,6 +25875,7 @@ exports[`geneInfo Store > should load data 2`] = `
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -26037,6 +26047,7 @@ exports[`geneInfo Store > should load data 2`] = `
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -26249,6 +26260,7 @@ exports[`geneInfo Store > should load data 2`] = `
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -26401,6 +26413,7 @@ exports[`geneInfo Store > should load data 2`] = `
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -26649,6 +26662,7 @@ exports[`geneInfo Store > should load data 2`] = `
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -26973,6 +26987,7 @@ exports[`geneInfo Store > should load data 2`] = `
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -27161,6 +27176,7 @@ exports[`geneInfo Store > should load data 2`] = `
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -27313,6 +27329,7 @@ exports[`geneInfo Store > should load data 2`] = `
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -27465,6 +27482,7 @@ exports[`geneInfo Store > should load data 2`] = `
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -27597,6 +27615,7 @@ exports[`geneInfo Store > should load data 2`] = `
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -27789,6 +27808,7 @@ exports[`geneInfo Store > should load data 2`] = `
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -28097,6 +28117,7 @@ exports[`geneInfo Store > should load data 2`] = `
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -53289,6 +53310,7 @@ exports[`geneInfo Store > should not load data if gene symbol is the same 2`] = 
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -53440,6 +53462,7 @@ exports[`geneInfo Store > should not load data if gene symbol is the same 2`] = 
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -53687,6 +53710,7 @@ exports[`geneInfo Store > should not load data if gene symbol is the same 2`] = 
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -54010,6 +54034,7 @@ exports[`geneInfo Store > should not load data if gene symbol is the same 2`] = 
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -54197,6 +54222,7 @@ exports[`geneInfo Store > should not load data if gene symbol is the same 2`] = 
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -54348,6 +54374,7 @@ exports[`geneInfo Store > should not load data if gene symbol is the same 2`] = 
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -54499,6 +54526,7 @@ exports[`geneInfo Store > should not load data if gene symbol is the same 2`] = 
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -54630,6 +54658,7 @@ exports[`geneInfo Store > should not load data if gene symbol is the same 2`] = 
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -54821,6 +54850,7 @@ exports[`geneInfo Store > should not load data if gene symbol is the same 2`] = 
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -55128,6 +55158,7 @@ exports[`geneInfo Store > should not load data if gene symbol is the same 2`] = 
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -55299,6 +55330,7 @@ exports[`geneInfo Store > should not load data if gene symbol is the same 2`] = 
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -55511,6 +55543,7 @@ exports[`geneInfo Store > should not load data if gene symbol is the same 2`] = 
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -55663,6 +55696,7 @@ exports[`geneInfo Store > should not load data if gene symbol is the same 2`] = 
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -55911,6 +55945,7 @@ exports[`geneInfo Store > should not load data if gene symbol is the same 2`] = 
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -56235,6 +56270,7 @@ exports[`geneInfo Store > should not load data if gene symbol is the same 2`] = 
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -56423,6 +56459,7 @@ exports[`geneInfo Store > should not load data if gene symbol is the same 2`] = 
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -56575,6 +56612,7 @@ exports[`geneInfo Store > should not load data if gene symbol is the same 2`] = 
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -56727,6 +56765,7 @@ exports[`geneInfo Store > should not load data if gene symbol is the same 2`] = 
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -56859,6 +56898,7 @@ exports[`geneInfo Store > should not load data if gene symbol is the same 2`] = 
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -57051,6 +57091,7 @@ exports[`geneInfo Store > should not load data if gene symbol is the same 2`] = 
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],
@@ -57359,6 +57400,7 @@ exports[`geneInfo Store > should not load data if gene symbol is the same 2`] = 
               "xrefs": [],
             },
           },
+          "clinicalAssertions": [],
           "hgncIds": [
             "HGNC:1100",
           ],

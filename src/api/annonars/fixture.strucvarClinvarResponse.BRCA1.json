@@ -49,7 +49,8 @@
           "displayStop": 41277501,
           "variantLength": 81191
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.802359940309718
     },
@@ -102,7 +103,8 @@
           "displayStop": 41277500,
           "variantLength": 81148
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.801944875431124
     },
@@ -155,7 +157,8 @@
           "displayStop": 41277500,
           "variantLength": 81148
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.801944875431124
     },
@@ -208,7 +211,8 @@
           "displayStop": 41277382,
           "variantLength": 81072
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.801193805650812
     },
@@ -261,7 +265,8 @@
           "displayStop": 41277500,
           "variantLength": 80524
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.795778197234877
     },
@@ -313,7 +318,8 @@
           "displayStop": 41277500,
           "variantLength": 79826
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.788880214252537
     },
@@ -365,7 +371,8 @@
           "displayStop": 41277500,
           "variantLength": 79826
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.788880214252537
     },
@@ -419,7 +426,8 @@
           "displayStop": 41277287,
           "variantLength": 79823
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.788850566761209
     },
@@ -473,7 +481,8 @@
           "displayStop": 41277287,
           "variantLength": 79823
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.788850566761209
     },
@@ -525,7 +534,8 @@
           "displayStop": 41277500,
           "variantLength": 79807
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.788692446807459
     },
@@ -630,7 +640,8 @@
           "displayStop": 41277287,
           "variantLength": 78440
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.775183073258951
     },
@@ -682,7 +693,8 @@
           "displayStop": 41276119,
           "variantLength": 78431
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.775094130784967
     },
@@ -734,7 +746,8 @@
           "displayStop": 41277500,
           "variantLength": 77861
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.769461107432626
     },
@@ -840,7 +853,8 @@
           "displayStop": 41277500,
           "variantLength": 77842
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.769273339987548
     },
@@ -894,7 +908,8 @@
           "displayStop": 41277501,
           "variantLength": 77843
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.769273339987548
     },
@@ -949,7 +964,8 @@
           "displayStop": 41277287,
           "variantLength": 76475
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.75576396643904
     },
@@ -1001,7 +1017,8 @@
           "displayStop": 41276132,
           "variantLength": 76473
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.755744201444821
     },
@@ -1054,7 +1071,8 @@
           "displayStop": 41276119,
           "variantLength": 76466
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.755675023965056
     },
@@ -1106,7 +1124,8 @@
           "displayStop": 41277500,
           "variantLength": 76383
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.754854776704978
     },
@@ -1160,7 +1179,8 @@
           "displayStop": 41277501,
           "variantLength": 77781
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.7546670092599
     },
@@ -1213,7 +1233,8 @@
           "displayStop": 41277500,
           "variantLength": 76362
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.754647244265681
     },
@@ -1266,7 +1287,8 @@
           "displayStop": 41277500,
           "variantLength": 76362
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.754647244265681
     },
@@ -1320,7 +1342,8 @@
           "displayStop": 41277382,
           "variantLength": 77662
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.753500874600994
     },
@@ -1375,7 +1398,8 @@
           "displayStop": 41277287,
           "variantLength": 77567
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.741157635711392
     },
@@ -1428,7 +1452,8 @@
           "displayStop": 41276119,
           "variantLength": 74988
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.741068693237407
     },
@@ -1481,7 +1506,8 @@
           "displayStop": 41277500,
           "variantLength": 74441
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.735662967318582
     },
@@ -1534,7 +1560,8 @@
           "displayStop": 41277500,
           "variantLength": 74441
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.735662967318582
     },
@@ -1587,7 +1614,8 @@
           "displayStop": 41277500,
           "variantLength": 74422
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.735475199873504
     },
@@ -1689,7 +1717,8 @@
           "displayStop": 41267802,
           "variantLength": 70114
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.69290140232634
     },
@@ -1741,7 +1770,8 @@
           "displayStop": 41267802,
           "variantLength": 70114
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.69290140232634
     },
@@ -1794,7 +1824,8 @@
           "displayStop": 41277500,
           "variantLength": 68453
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.676486574627677
     },
@@ -1847,7 +1878,8 @@
           "displayStop": 41277500,
           "variantLength": 68433
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.67628892468549
     },
@@ -1901,7 +1933,8 @@
           "displayStop": 41277501,
           "variantLength": 74367
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.67628892468549
     },
@@ -1956,7 +1989,8 @@
           "displayStop": 41277287,
           "variantLength": 67066
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.662779551136981
     },
@@ -2060,7 +2094,8 @@
           "displayStop": 41277500,
           "variantLength": 62171
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.614404727786617
     },
@@ -2113,7 +2148,8 @@
           "displayStop": 41277500,
           "variantLength": 62171
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.614404727786617
     },
@@ -2166,7 +2202,8 @@
           "displayStop": 41277500,
           "variantLength": 62152
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.614216960341539
     },
@@ -2220,7 +2257,8 @@
           "displayStop": 41277501,
           "variantLength": 68349
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.614216960341539
     },
@@ -2272,7 +2310,8 @@
           "displayStop": 41277500,
           "variantLength": 61630
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.609058296850448
     },
@@ -2325,7 +2364,8 @@
           "displayStop": 41258570,
           "variantLength": 60896
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.601804543972171
     },
@@ -2377,7 +2417,8 @@
           "displayStop": 41258556,
           "variantLength": 60868
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.601527834053109
     },
@@ -6637,7 +6678,8 @@
           "displayStop": 41277500,
           "variantLength": 21382
         },
-        "hgncIds": ["HGNC:1100"]
+        "hgncIds": ["HGNC:1100"],
+        "clinicalAssertions": []
       },
       "overlap": 0.211307553192541
     },

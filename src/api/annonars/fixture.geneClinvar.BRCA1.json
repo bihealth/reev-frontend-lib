@@ -197,7 +197,8 @@
                 "referenceAlleleVcf": "A",
                 "alternateAlleleVcf": "C"
               },
-              "hgncIds": ["HGNC:1100"]
+              "hgncIds": ["HGNC:1100"],
+              "clinicalAssertions": []
             },
             {
               "accession": {
@@ -401,7 +402,8 @@
                 "referenceAlleleVcf": "A",
                 "alternateAlleleVcf": "C"
               },
-              "hgncIds": ["HGNC:1100"]
+              "hgncIds": ["HGNC:1100"],
+              "clinicalAssertions": []
             },
             {
               "accession": {
@@ -672,7 +674,8 @@
                 "referenceAlleleVcf": "ACT",
                 "alternateAlleleVcf": "A"
               },
-              "hgncIds": ["HGNC:1100"]
+              "hgncIds": ["HGNC:1100"],
+              "clinicalAssertions": []
             },
             {
               "accession": {
@@ -825,7 +828,8 @@
                 "referenceAlleleVcf": "TGATTCAGACTCCCCATCATGTGAGTCATCAGAACCTAACA",
                 "alternateAlleleVcf": "T"
               },
-              "hgncIds": ["HGNC:1100"]
+              "hgncIds": ["HGNC:1100"],
+              "clinicalAssertions": []
             },
             {
               "accession": {
@@ -945,7 +949,8 @@
                 "referenceAlleleVcf": "ACT",
                 "alternateAlleleVcf": "A"
               },
-              "hgncIds": ["HGNC:1100"]
+              "hgncIds": ["HGNC:1100"],
+              "clinicalAssertions": []
             },
             {
               "accession": {
@@ -1065,7 +1070,8 @@
                 "referenceAlleleVcf": "GTT",
                 "alternateAlleleVcf": "G"
               },
-              "hgncIds": ["HGNC:1100"]
+              "hgncIds": ["HGNC:1100"],
+              "clinicalAssertions": []
             },
             {
               "accession": {
@@ -1168,7 +1174,8 @@
                 "referenceAlleleVcf": "GT",
                 "alternateAlleleVcf": "G"
               },
-              "hgncIds": ["HGNC:1100"]
+              "hgncIds": ["HGNC:1100"],
+              "clinicalAssertions": []
             },
             {
               "accession": {
@@ -1322,7 +1329,8 @@
                 "referenceAlleleVcf": "C",
                 "alternateAlleleVcf": "T"
               },
-              "hgncIds": ["HGNC:1100"]
+              "hgncIds": ["HGNC:1100"],
+              "clinicalAssertions": []
             },
             {
               "accession": {
@@ -1577,7 +1585,8 @@
                 "referenceAlleleVcf": "G",
                 "alternateAlleleVcf": "A"
               },
-              "hgncIds": ["HGNC:1100"]
+              "hgncIds": ["HGNC:1100"],
+              "clinicalAssertions": []
             },
             {
               "accession": {
@@ -1714,7 +1723,8 @@
                 "referenceAlleleVcf": "C",
                 "alternateAlleleVcf": "A"
               },
-              "hgncIds": ["HGNC:1100"]
+              "hgncIds": ["HGNC:1100"],
+              "clinicalAssertions": []
             },
             {
               "accession": {
@@ -1884,7 +1894,8 @@
                 "referenceAlleleVcf": "TAGAC",
                 "alternateAlleleVcf": "T"
               },
-              "hgncIds": ["HGNC:1100"]
+              "hgncIds": ["HGNC:1100"],
+              "clinicalAssertions": []
             }
           ]
         },
@@ -2010,7 +2021,8 @@
                 "referenceAlleleVcf": "A",
                 "alternateAlleleVcf": "C"
               },
-              "hgncIds": ["HGNC:1100"]
+              "hgncIds": ["HGNC:1100"],
+              "clinicalAssertions": []
             },
             {
               "accession": {
@@ -2215,7 +2227,8 @@
                 "referenceAlleleVcf": "A",
                 "alternateAlleleVcf": "C"
               },
-              "hgncIds": ["HGNC:1100"]
+              "hgncIds": ["HGNC:1100"],
+              "clinicalAssertions": []
             },
             {
               "accession": {
@@ -2487,7 +2500,8 @@
                 "referenceAlleleVcf": "ACT",
                 "alternateAlleleVcf": "A"
               },
-              "hgncIds": ["HGNC:1100"]
+              "hgncIds": ["HGNC:1100"],
+              "clinicalAssertions": []
             },
             {
               "accession": {
@@ -2641,7 +2655,8 @@
                 "referenceAlleleVcf": "TGATTCAGACTCCCCATCATGTGAGTCATCAGAACCTAACA",
                 "alternateAlleleVcf": "T"
               },
-              "hgncIds": ["HGNC:1100"]
+              "hgncIds": ["HGNC:1100"],
+              "clinicalAssertions": []
             },
             {
               "accession": {
@@ -2762,7 +2777,8 @@
                 "referenceAlleleVcf": "ACT",
                 "alternateAlleleVcf": "A"
               },
-              "hgncIds": ["HGNC:1100"]
+              "hgncIds": ["HGNC:1100"],
+              "clinicalAssertions": []
             },
             {
               "accession": {
@@ -2883,7 +2899,8 @@
                 "referenceAlleleVcf": "GTT",
                 "alternateAlleleVcf": "G"
               },
-              "hgncIds": ["HGNC:1100"]
+              "hgncIds": ["HGNC:1100"],
+              "clinicalAssertions": []
             },
             {
               "accession": {
@@ -2987,7 +3004,8 @@
                 "referenceAlleleVcf": "GT",
                 "alternateAlleleVcf": "G"
               },
-              "hgncIds": ["HGNC:1100"]
+              "hgncIds": ["HGNC:1100"],
+              "clinicalAssertions": []
             },
             {
               "accession": {
@@ -3142,7 +3160,8 @@
                 "referenceAlleleVcf": "C",
                 "alternateAlleleVcf": "T"
               },
-              "hgncIds": ["HGNC:1100"]
+              "hgncIds": ["HGNC:1100"],
+              "clinicalAssertions": []
             },
             {
               "accession": {
@@ -3398,7 +3417,8 @@
                 "referenceAlleleVcf": "G",
                 "alternateAlleleVcf": "A"
               },
-              "hgncIds": ["HGNC:1100"]
+              "hgncIds": ["HGNC:1100"],
+              "clinicalAssertions": []
             },
             {
               "accession": {
@@ -3536,7 +3556,8 @@
                 "referenceAlleleVcf": "C",
                 "alternateAlleleVcf": "A"
               },
-              "hgncIds": ["HGNC:1100"]
+              "hgncIds": ["HGNC:1100"],
+              "clinicalAssertions": []
             }
           ]
         }

@@ -80,7 +80,7 @@ describe('geneInfo Store', () => {
         return Promise.resolve(JSON.stringify(geneInfoResponseBrca1))
       } else if (req.url.includes('clinvar')) {
         return Promise.resolve(JSON.stringify(geneClinvarResponseBrca1))
-      } else if (req.url.includes('genes/txs')) {
+      } else if (req.url.includes('genes/transcripts')) {
         return Promise.resolve(JSON.stringify(genesTxsResponseBrca1))
       } else if (req.url.includes('viguno')) {
         return Promise.resolve(JSON.stringify(hpoTermsResponseBrca1))
@@ -110,7 +110,7 @@ describe('geneInfo Store', () => {
         return Promise.resolve(JSON.stringify(geneInfoResponseBrca1))
       } else if (req.url.includes('clinvar')) {
         return Promise.resolve(JSON.stringify(geneClinvarResponseBrca1))
-      } else if (req.url.includes('genes/txs')) {
+      } else if (req.url.includes('genes/transcripts')) {
         return Promise.resolve(JSON.stringify(genesTxsResponseBrca1))
       } else if (req.url.includes('viguno')) {
         return Promise.resolve(JSON.stringify(hpoTermsResponseBrca1))
@@ -140,7 +140,7 @@ describe('geneInfo Store', () => {
         return Promise.resolve(JSON.stringify(geneInfoResponseBrca1))
       } else if (req.url.includes('clinvar')) {
         return Promise.resolve(JSON.stringify(geneClinvarResponseBrca1))
-      } else if (req.url.includes('genes/txs')) {
+      } else if (req.url.includes('genes/transcripts')) {
         return Promise.resolve(JSON.stringify(genesTxsResponseBrca1))
       } else if (req.url.includes('viguno')) {
         return Promise.resolve(JSON.stringify(hpoTermsResponseBrca1))
@@ -168,7 +168,7 @@ describe('geneInfo Store', () => {
         return Promise.resolve(JSON.stringify(geneInfoResponseBrca1))
       } else if (req.url.includes('clinvar')) {
         return Promise.resolve(JSON.stringify(geneClinvarResponseBrca1))
-      } else if (req.url.includes('genes/txs')) {
+      } else if (req.url.includes('genes/transcripts')) {
         return Promise.resolve(JSON.stringify(genesTxsResponseBrca1))
       } else if (req.url.includes('viguno')) {
         return Promise.resolve(JSON.stringify(hpoTermsResponseBrca1))

@@ -42,6 +42,49 @@ export interface SequenceDb {
   seqs: string[]
 }
 /**
+ * Version information for the database.
+ *
+ * @generated from protobuf message mehari.txs.SourceVersion
+ */
+export interface SourceVersion {
+  /**
+   * Version of mehari used to build the database.
+   *
+   * @generated from protobuf field: string mehari_version = 1;
+   */
+  mehariVersion: string
+  /**
+   * Assembly used, either GRCh37 or GRCh38 (or Unknown).
+   *
+   * @generated from protobuf field: mehari.txs.Assembly assembly = 2;
+   */
+  assembly: Assembly
+  /**
+   * Version of the assembly, optional.
+   *
+   * @generated from protobuf field: optional string assembly_version = 3;
+   */
+  assemblyVersion?: string
+  /**
+   * Source, either RefSeq or Ensembl (or Unknown).
+   *
+   * @generated from protobuf field: mehari.txs.Source source_name = 4;
+   */
+  sourceName: Source
+  /**
+   * Version of the source, e.g. 112 for Ensembl.
+   *
+   * @generated from protobuf field: string source_version = 5;
+   */
+  sourceVersion: string
+  /**
+   * Version of cdot.
+   *
+   * @generated from protobuf field: string cdot_version = 6;
+   */
+  cdotVersion: string
+}
+/**
  * Mapping from gene to transcript ID.
  *
  * @generated from protobuf message mehari.txs.GeneToTxId
@@ -275,11 +318,61 @@ export interface TxSeqDatabase {
    */
   version?: string
   /**
-   * The reference assembly that this database refers to.
+   * Version information; allow repeated here to be able to keep track of information when merging databases
    *
-   * @generated from protobuf field: optional string genome_release = 4;
+   * @generated from protobuf field: repeated mehari.txs.SourceVersion source_version = 5;
    */
-  genomeRelease?: string
+  sourceVersion: SourceVersion[]
+}
+/**
+ * Indicates the reference assembly of the transcript database.
+ *
+ * @generated from protobuf enum mehari.txs.Assembly
+ */
+export enum Assembly {
+  /**
+   * Unknown.
+   *
+   * @generated from protobuf enum value: ASSEMBLY_UNKNOWN = 0;
+   */
+  ASSEMBLY_UNKNOWN = 0,
+  /**
+   * GRCh37.
+   *
+   * @generated from protobuf enum value: ASSEMBLY_GRCH37 = 1;
+   */
+  ASSEMBLY_GRCH37 = 1,
+  /**
+   * GRCh38.
+   *
+   * @generated from protobuf enum value: ASSEMBLY_GRCH38 = 2;
+   */
+  ASSEMBLY_GRCH38 = 2
+}
+/**
+ * Indicates the transcript source.
+ *
+ * @generated from protobuf enum mehari.txs.Source
+ */
+export enum Source {
+  /**
+   * Unknown.
+   *
+   * @generated from protobuf enum value: SOURCE_UNKNOWN = 0;
+   */
+  SOURCE_UNKNOWN = 0,
+  /**
+   * RefSeq.
+   *
+   * @generated from protobuf enum value: SOURCE_REFSEQ = 1;
+   */
+  SOURCE_REFSEQ = 1,
+  /**
+   * Ensembl.
+   *
+   * @generated from protobuf enum value: SOURCE_ENSEMBL = 2;
+   */
+  SOURCE_ENSEMBL = 2
 }
 /**
  * Enumeration for `Transcript::biotype`.
@@ -359,7 +452,19 @@ export enum TranscriptTag {
    *
    * @generated from protobuf enum value: TRANSCRIPT_TAG_GENCODE_PRIMARY = 7;
    */
-  TRANSCRIPT_TAG_GENCODE_PRIMARY = 7
+  TRANSCRIPT_TAG_GENCODE_PRIMARY = 7,
+  /**
+   * catchall for other tags
+   *
+   * @generated from protobuf enum value: TRANSCRIPT_TAG_OTHER = 8;
+   */
+  TRANSCRIPT_TAG_OTHER = 8,
+  /**
+   * Whether the transcript has been grafted from Ensembl.
+   *
+   * @generated from protobuf enum value: TRANSCRIPT_TAG_ENSEMBL_GRAFT = 9;
+   */
+  TRANSCRIPT_TAG_ENSEMBL_GRAFT = 9
 }
 /**
  * Enumeration for the known genome builds.
@@ -514,6 +619,106 @@ class SequenceDb$Type extends MessageType<SequenceDb> {
  * @generated MessageType for protobuf message mehari.txs.SequenceDb
  */
 export const SequenceDb = new SequenceDb$Type()
+// @generated message type with reflection information, may provide speed optimized methods
+class SourceVersion$Type extends MessageType<SourceVersion> {
+  constructor() {
+    super('mehari.txs.SourceVersion', [
+      { no: 1, name: 'mehari_version', kind: 'scalar', T: 9 /*ScalarType.STRING*/ },
+      { no: 2, name: 'assembly', kind: 'enum', T: () => ['mehari.txs.Assembly', Assembly] },
+      { no: 3, name: 'assembly_version', kind: 'scalar', opt: true, T: 9 /*ScalarType.STRING*/ },
+      { no: 4, name: 'source_name', kind: 'enum', T: () => ['mehari.txs.Source', Source] },
+      { no: 5, name: 'source_version', kind: 'scalar', T: 9 /*ScalarType.STRING*/ },
+      { no: 6, name: 'cdot_version', kind: 'scalar', T: 9 /*ScalarType.STRING*/ }
+    ])
+  }
+  create(value?: PartialMessage<SourceVersion>): SourceVersion {
+    const message = globalThis.Object.create(this.messagePrototype!)
+    message.mehariVersion = ''
+    message.assembly = 0
+    message.sourceName = 0
+    message.sourceVersion = ''
+    message.cdotVersion = ''
+    if (value !== undefined) reflectionMergePartial<SourceVersion>(this, message, value)
+    return message
+  }
+  internalBinaryRead(
+    reader: IBinaryReader,
+    length: number,
+    options: BinaryReadOptions,
+    target?: SourceVersion
+  ): SourceVersion {
+    const message = target ?? this.create(),
+      end = reader.pos + length
+    while (reader.pos < end) {
+      const [fieldNo, wireType] = reader.tag()
+      switch (fieldNo) {
+        case /* string mehari_version */ 1:
+          message.mehariVersion = reader.string()
+          break
+        case /* mehari.txs.Assembly assembly */ 2:
+          message.assembly = reader.int32()
+          break
+        case /* optional string assembly_version */ 3:
+          message.assemblyVersion = reader.string()
+          break
+        case /* mehari.txs.Source source_name */ 4:
+          message.sourceName = reader.int32()
+          break
+        case /* string source_version */ 5:
+          message.sourceVersion = reader.string()
+          break
+        case /* string cdot_version */ 6:
+          message.cdotVersion = reader.string()
+          break
+        default:
+          const u = options.readUnknownField
+          if (u === 'throw')
+            throw new globalThis.Error(
+              `Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`
+            )
+          const d = reader.skip(wireType)
+          if (u !== false)
+            (u === true ? UnknownFieldHandler.onRead : u)(
+              this.typeName,
+              message,
+              fieldNo,
+              wireType,
+              d
+            )
+      }
+    }
+    return message
+  }
+  internalBinaryWrite(
+    message: SourceVersion,
+    writer: IBinaryWriter,
+    options: BinaryWriteOptions
+  ): IBinaryWriter {
+    /* string mehari_version = 1; */
+    if (message.mehariVersion !== '')
+      writer.tag(1, WireType.LengthDelimited).string(message.mehariVersion)
+    /* mehari.txs.Assembly assembly = 2; */
+    if (message.assembly !== 0) writer.tag(2, WireType.Varint).int32(message.assembly)
+    /* optional string assembly_version = 3; */
+    if (message.assemblyVersion !== undefined)
+      writer.tag(3, WireType.LengthDelimited).string(message.assemblyVersion)
+    /* mehari.txs.Source source_name = 4; */
+    if (message.sourceName !== 0) writer.tag(4, WireType.Varint).int32(message.sourceName)
+    /* string source_version = 5; */
+    if (message.sourceVersion !== '')
+      writer.tag(5, WireType.LengthDelimited).string(message.sourceVersion)
+    /* string cdot_version = 6; */
+    if (message.cdotVersion !== '')
+      writer.tag(6, WireType.LengthDelimited).string(message.cdotVersion)
+    const u = options.writeUnknownFields
+    if (u !== false) (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer)
+    return writer
+  }
+}
+/**
+ * @generated MessageType for protobuf message mehari.txs.SourceVersion
+ */
+export const SourceVersion = new SourceVersion$Type()
 // @generated message type with reflection information, may provide speed optimized methods
 class GeneToTxId$Type extends MessageType<GeneToTxId> {
   constructor() {
@@ -1069,11 +1274,18 @@ class TxSeqDatabase$Type extends MessageType<TxSeqDatabase> {
       { no: 1, name: 'tx_db', kind: 'message', T: () => TranscriptDb },
       { no: 2, name: 'seq_db', kind: 'message', T: () => SequenceDb },
       { no: 3, name: 'version', kind: 'scalar', opt: true, T: 9 /*ScalarType.STRING*/ },
-      { no: 4, name: 'genome_release', kind: 'scalar', opt: true, T: 9 /*ScalarType.STRING*/ }
+      {
+        no: 5,
+        name: 'source_version',
+        kind: 'message',
+        repeat: 1 /*RepeatType.PACKED*/,
+        T: () => SourceVersion
+      }
     ])
   }
   create(value?: PartialMessage<TxSeqDatabase>): TxSeqDatabase {
     const message = globalThis.Object.create(this.messagePrototype!)
+    message.sourceVersion = []
     if (value !== undefined) reflectionMergePartial<TxSeqDatabase>(this, message, value)
     return message
   }
@@ -1107,8 +1319,10 @@ class TxSeqDatabase$Type extends MessageType<TxSeqDatabase> {
         case /* optional string version */ 3:
           message.version = reader.string()
           break
-        case /* optional string genome_release */ 4:
-          message.genomeRelease = reader.string()
+        case /* repeated mehari.txs.SourceVersion source_version */ 5:
+          message.sourceVersion.push(
+            SourceVersion.internalBinaryRead(reader, reader.uint32(), options)
+          )
           break
         default:
           const u = options.readUnknownField
@@ -1151,9 +1365,13 @@ class TxSeqDatabase$Type extends MessageType<TxSeqDatabase> {
     /* optional string version = 3; */
     if (message.version !== undefined)
       writer.tag(3, WireType.LengthDelimited).string(message.version)
-    /* optional string genome_release = 4; */
-    if (message.genomeRelease !== undefined)
-      writer.tag(4, WireType.LengthDelimited).string(message.genomeRelease)
+    /* repeated mehari.txs.SourceVersion source_version = 5; */
+    for (let i = 0; i < message.sourceVersion.length; i++)
+      SourceVersion.internalBinaryWrite(
+        message.sourceVersion[i],
+        writer.tag(5, WireType.LengthDelimited).fork(),
+        options
+      ).join()
     const u = options.writeUnknownFields
     if (u !== false) (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer)
     return writer
