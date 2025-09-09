@@ -97,7 +97,7 @@ export enum SeqvarConsequence {
  */
 export interface Rank$Api {
   /** The exon / intron number. */
-  rank: number
+  ord: number
   /** The total number of exons / introns. */
   total: number
 }
@@ -107,7 +107,7 @@ export interface Rank$Api {
  */
 export interface Rank {
   /** The exon / intron number. */
-  rank: number
+  ord: number
   /** The total number of exons / introns. */
   total: number
 }
@@ -119,7 +119,7 @@ class Rank$Type {
   /** Convert `Rank$Api` to `Rank`. */
   fromJson(json: Rank$Api): Rank {
     return {
-      rank: json.rank,
+      ord: json.ord,
       total: json.total
     }
   }
@@ -129,6 +129,20 @@ class Rank$Type {
  * Helper for converting `Rank$Api` to `Rank`.
  */
 export const Rank: Rank$Type = new Rank$Type()
+
+/**
+ * Type representing a feature tag.
+ */
+export type FeatureTag =
+  | 'unknown'
+  | 'basic'
+  | 'ensembl_canonical'
+  | 'mane_select'
+  | 'mane_plus_clinical'
+  | 'ref_seq_select'
+  | 'selenoprotein'
+  | 'gencode_primary'
+  | { other: string }
 
 /**
  * Interface for one entry in the result as returned by API.
@@ -149,7 +163,7 @@ export interface SeqvarResultEntry$Api {
   /** The feature biotype. */
   feature_biotype: string
   /** The feature tags. */
-  feature_tag: string[]
+  feature_tags: FeatureTag[]
   /** The exon / intron rank. */
   rank: Rank$Api | null
   /** HGVS c. notation. */
@@ -187,7 +201,7 @@ export interface SeqvarResultEntry {
   /** The feature biotype. */
   featureBiotype: string
   /** The feature tags. */
-  featureTag: string[]
+  featureTags: FeatureTag[]
   /** The exon / intron rank. */
   rank?: Rank
   /** HGVS c. notation. */
@@ -220,7 +234,7 @@ class SeqvarResultEntry$Type {
       featureType: json.feature_type,
       featureId: json.feature_id,
       featureBiotype: json.feature_biotype,
-      featureTag: json.feature_tag,
+      featureTags: json.feature_tags,
       rank: json.rank === null ? undefined : Rank.fromJson(json.rank),
       hgvsT: json.hgvs_t === null ? undefined : json.hgvs_t,
       hgvsP: json.hgvs_p === null ? undefined : json.hgvs_p,
