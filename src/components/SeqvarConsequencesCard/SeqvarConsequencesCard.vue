@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { SeqvarResultEntry } from '../../api/mehari/types'
+import { FeatureTag, SeqvarResultEntry } from '../../api/mehari/types'
 import DocsLink from '../DocsLink/DocsLink.vue'
 
 /** This component's  */
@@ -13,6 +13,23 @@ const props = withDefaults(
     consequences: () => []
   }
 )
+
+/**
+ * Helper function to check if a feature tag array contains a specific tag
+ * Handles both string tags and object tags with 'other' property
+ */
+const hasFeatureTag = (tags: FeatureTag[], targetTag: string): boolean => {
+  return tags.some((tag) => {
+    if (typeof tag === 'string') {
+      return tag === targetTag
+    }
+    // Handle object case with 'other' property
+    if (typeof tag === 'object' && tag !== null && 'other' in tag) {
+      return tag.other === targetTag
+    }
+    return false
+  })
+}
 </script>
 
 <template>
@@ -58,14 +75,14 @@ const props = withDefaults(
                   {{ oneTxCsq.featureId }}
                   <small> ({{ oneTxCsq.featureBiotype }}) </small>
                   <v-chip
-                    v-if="(oneTxCsq.featureTag ?? []).includes('ManeSelect')"
+                    v-if="hasFeatureTag(oneTxCsq.featureTags ?? [], 'mane_select')"
                     color="primary"
                     class="ml-3"
                   >
                     MANE Select
                   </v-chip>
                   <v-chip
-                    v-if="(oneTxCsq.featureTag ?? []).includes('ManePlusClinical')"
+                    v-if="hasFeatureTag(oneTxCsq.featureTags ?? [], 'mane_plus_clinical')"
                     color="primary"
                     class="ml-3"
                   >
@@ -76,7 +93,7 @@ const props = withDefaults(
                 <td style="max-width: 400px">{{ oneTxCsq.hgvsT }}</td>
                 <td style="max-width: 400px">{{ oneTxCsq.hgvsP }}</td>
                 <template v-if="oneTxCsq.rank">
-                  <td>{{ oneTxCsq.rank!.rank ?? 0 }} / {{ oneTxCsq.rank!.total ?? 0 }}</td>
+                  <td>{{ oneTxCsq.rank!.ord ?? 0 }} / {{ oneTxCsq.rank!.total ?? 0 }}</td>
                 </template>
                 <template v-else>
                   <td>-</td>
