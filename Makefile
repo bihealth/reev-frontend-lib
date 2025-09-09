@@ -12,6 +12,7 @@ help:
 	@echo "  test        Run tests (no watch)"
 	@echo "  test-ci     Run tests (no watch) for CI (with coverage, single-threaded)"
 	@echo "  test-nocov  Run tests (no watch) without coverage"
+	@echo "  snap        Update snapshots for tests"
 	@echo "  proto-fetch Fetch protobuf files"
 	@echo "  proto-ts    Generate .ts from .proto files"
 	@echo "  proto	     Fetch, generate, and format .ts from .proto files"
@@ -36,6 +37,10 @@ lint:
 .PHONY: test
 test:
 	npm run -- test:unit --run
+
+.PHONY: snap
+snap:
+	npm run -- test:snap
 
 # Tests in the CI are forced into a single thread as the worker only has
 # two cores only and some tests run into timeouts otherwise.
