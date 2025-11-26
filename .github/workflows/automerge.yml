@@ -10,7 +10,21 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
-      - name: Enable auto-merge for Dependabot PRs
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Check if npm dependency update
+        id: check_npm
+        run: |
+          if git diff --name-only origin/${{ github.base_ref }}...HEAD | grep -q "package"; then
+            echo "is_npm=true" >> $GITHUB_OUTPUT
+            echo "::warning::NPM update detected - skipping auto-merge (requires manual review)"
+          else
+            echo "is_npm=false" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Enable auto-merge for non-npm Dependabot PRs
+        if: steps.check_npm.outputs.is_npm == 'false'
         run: gh pr merge --auto --squash "$PR_URL"
         env:
           PR_URL: ${{github.event.pull_request.html_url}}

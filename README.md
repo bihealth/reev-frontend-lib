@@ -28,6 +28,26 @@ Fetch protobuf files from main, and re-generate the TS files, and format them.
 make proto
 ```
 
+## NPM Security
+
+This library implements security measures to protect against npm supply chain attacks. See [docs/SECURITY-NPM-SUPPLY-CHAIN.md](docs/SECURITY-NPM-SUPPLY-CHAIN.md) for detailed information.
+
+**Before accepting any npm dependency updates:**
+
+```bash
+# Run comprehensive security scan
+./utils/scan-npm-compromise.sh
+
+# Or run quick security check (includes scan + audit)
+./utils/npm-security-check.sh
+```
+
+**Key security measures:**
+- Automated scanning for known malicious packages (425+ packages including Shai-Hulud 2.0)
+- Dependabot auto-merge disabled for npm updates
+- Manual review required for all npm dependency changes
+- Detection of suspicious install scripts and network activity
+
 ## Developer How-Tos
 
 Checking for upstream updates
@@ -36,8 +56,15 @@ Checking for upstream updates
 npx npm-check-updates
 ```
 
-Apply updates
+Apply updates (**⚠️ Run security scan first!**)
 
 ```
+# 1. Run security check BEFORE updating
+./utils/npm-security-check.sh
+
+# 2. Apply updates
 npx npm-check-updates --upgrade
+
+# 3. Run security scan AFTER updating
+./utils/scan-npm-compromise.sh
 ```
