@@ -98,11 +98,11 @@ export class AnnonarsClient {
    * Fetch per-gene ClinVar information via annonars REST API.
    *
    * @param hgncId HGNC ID, e.g., `"HGNC:26467"`.
-   * @returns Promise with per-gene ClinVar information.
+   * @returns Promise with per-gene ClinVar information, or undefined if no data is available.
    * @throws StatusCodeNotOk if the request fails.
    * @throws InvalidResponseContent if the response is not valid JSON.
    */
-  async fetchGeneClinvarInfo(hgncId: string): Promise<ClinvarPerGeneRecord> {
+  async fetchGeneClinvarInfo(hgncId: string): Promise<ClinvarPerGeneRecord | undefined> {
     const response = await fetch(`${this.apiBaseUrl}/genes/clinvar?hgnc_id=${hgncId}`, {
       method: 'GET'
     })
@@ -119,7 +119,8 @@ export class AnnonarsClient {
         throw new InvalidResponseContent(`failed to parse gene clinvar info response: ${e}`)
       }
     } else {
-      throw new InvalidResponseContent(`failed to fetch gene clinvar info for HGNC ID: ${hgncId}`)
+      // Empty response is valid - it means no ClinVar data is available for this gene
+      return undefined
     }
   }
 

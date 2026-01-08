@@ -196,6 +196,18 @@ describe('AnnonarsClient.fetchGeneClinvarInfo()', () => {
 
     // assert:
   })
+
+  it('returns undefined when no clinvar data is available for gene', async () => {
+    // arrange:
+    fetchMocker.mockResponseOnce(JSON.stringify({ genes: {} }))
+
+    // act:
+    const client = new AnnonarsClient()
+    const result = await client.fetchGeneClinvarInfo('HGNC:14470')
+
+    // assert:
+    expect(result).toBeUndefined()
+  })
 })
 
 describe('AnnonarsClient.fetchGenes()', () => {
