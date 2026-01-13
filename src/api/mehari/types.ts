@@ -142,6 +142,15 @@ export type FeatureTag =
   | 'ref_seq_select'
   | 'selenoprotein'
   | 'gencode_primary'
+  | 'ensembl_graft'
+  | 'basic_backport'
+  | 'ensembl_canonical_backport'
+  | 'mane_select_backport'
+  | 'mane_plus_clinical_backport'
+  | 'ref_seq_select_backport'
+  | 'selenoprotein_backport'
+  | 'gencode_primary_backport'
+  | 'other_backport'
   | { other: string }
 
 /**

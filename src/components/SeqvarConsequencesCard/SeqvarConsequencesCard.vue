@@ -88,6 +88,22 @@ const hasFeatureTag = (tags: FeatureTag[], targetTag: string): boolean => {
                   >
                     MANE Plus Clinical
                   </v-chip>
+                  <v-chip
+                    v-if="hasFeatureTag(oneTxCsq.featureTags ?? [], 'mane_select_backport')"
+                    color="primary"
+                    variant="outlined"
+                    class="ml-3"
+                  >
+                    MANE Select (GRCh38)
+                  </v-chip>
+                  <v-chip
+                    v-if="hasFeatureTag(oneTxCsq.featureTags ?? [], 'mane_plus_clinical_backport')"
+                    color="primary"
+                    variant="outlined"
+                    class="ml-3"
+                  >
+                    MANE Plus Clinical (GRCh38)
+                  </v-chip>
                 </td>
                 <td>{{ oneTxCsq.consequences.join(', ') }}</td>
                 <td style="max-width: 400px">{{ oneTxCsq.hgvsT }}</td>
