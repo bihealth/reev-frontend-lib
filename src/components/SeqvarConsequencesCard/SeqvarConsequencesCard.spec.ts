@@ -42,4 +42,102 @@ describe.concurrent('SeqvarConsequencesCard.vue', async () => {
     expect(headers[4].text()).toBe('HGVS.p')
     expect(headers[5].text()).toBe('Exon/Intron')
   })
+
+  it('displays MANE Select chip for transcripts with mane_select tag', async () => {
+    // arrange:
+    const { wrapper } = await setupMountedComponents(
+      { component: SeqvarConsequencesCard },
+      {
+        props: {
+          consequences: seqvarCsqResult.result
+        }
+      }
+    )
+
+    // act: nothing, only test rendering
+
+    // assert:
+    const chips = wrapper.findAll('.v-chip')
+    const maneSelectChip = chips.find((chip) => chip.text().includes('MANE Select'))
+    expect(maneSelectChip).toBeDefined()
+    expect(maneSelectChip?.text()).toContain('MANE Select')
+  })
+
+  it('displays MANE Plus Clinical chip for transcripts with mane_plus_clinical tag', async () => {
+    // arrange:
+    const { wrapper } = await setupMountedComponents(
+      { component: SeqvarConsequencesCard },
+      {
+        props: {
+          consequences: seqvarCsqResult.result
+        }
+      }
+    )
+
+    // act: nothing, only test rendering
+
+    // assert:
+    const chips = wrapper.findAll('.v-chip')
+    const manePlusChip = chips.find((chip) => chip.text().includes('MANE Plus Clinical'))
+    expect(manePlusChip).toBeDefined()
+    expect(manePlusChip?.text()).toContain('MANE Plus Clinical')
+  })
+
+  it('displays MANE Select backport chip for transcripts with mane_select_backport tag', async () => {
+    // arrange:
+    const { wrapper } = await setupMountedComponents(
+      { component: SeqvarConsequencesCard },
+      {
+        props: {
+          consequences: seqvarCsqResult.result
+        }
+      }
+    )
+
+    // act: nothing, only test rendering
+
+    // assert:
+    const chips = wrapper.findAll('.v-chip')
+    const backportChip = chips.find((chip) => chip.text().includes('MANE Select (GRCh38)'))
+    expect(backportChip).toBeDefined()
+    expect(backportChip?.text()).toContain('MANE Select (GRCh38)')
+  })
+
+  it('displays MANE Plus Clinical backport chip for transcripts with mane_plus_clinical_backport tag', async () => {
+    // arrange:
+    const { wrapper } = await setupMountedComponents(
+      { component: SeqvarConsequencesCard },
+      {
+        props: {
+          consequences: seqvarCsqResult.result
+        }
+      }
+    )
+
+    // act: nothing, only test rendering
+
+    // assert:
+    const chips = wrapper.findAll('.v-chip')
+    const backportChip = chips.find((chip) => chip.text().includes('MANE Plus Clinical (GRCh38)'))
+    expect(backportChip).toBeDefined()
+    expect(backportChip?.text()).toContain('MANE Plus Clinical (GRCh38)')
+  })
+
+  it('displays correct number of transcripts from fixture', async () => {
+    // arrange:
+    const { wrapper } = await setupMountedComponents(
+      { component: SeqvarConsequencesCard },
+      {
+        props: {
+          consequences: seqvarCsqResult.result
+        }
+      }
+    )
+
+    // act: nothing, only test rendering
+
+    // assert:
+    const rows = wrapper.findAll('tbody tr')
+    expect(rows.length).toBe(seqvarCsqResult.result.length)
+  })
 })

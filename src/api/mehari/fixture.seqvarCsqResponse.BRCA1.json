@@ -29,6 +29,7 @@
     },
     {
       "consequences": ["MissenseVariant"],
+      "feature_tags": ["mane_plus_clinical"],
       "putative_impact": "Moderate",
       "gene_symbol": "BRCA1",
       "gene_id": "HGNC:1100",
@@ -46,6 +47,7 @@
     },
     {
       "consequences": ["MissenseVariant"],
+      "feature_tags": ["mane_select_backport"],
       "putative_impact": "Moderate",
       "gene_symbol": "BRCA1",
       "gene_id": "HGNC:1100",
@@ -63,6 +65,7 @@
     },
     {
       "consequences": ["MissenseVariant"],
+      "feature_tags": ["mane_plus_clinical_backport"],
       "putative_impact": "Moderate",
       "gene_symbol": "BRCA1",
       "gene_id": "HGNC:1100",
