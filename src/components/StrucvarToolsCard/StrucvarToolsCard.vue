@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 
 import { type Strucvar } from '../../lib/genomicVars'
+import { igvChrom } from '../../lib/utils'
 import DocsLink from '../DocsLink/DocsLink.vue'
 
 /** The component's props. */
@@ -98,7 +99,7 @@ const franklinLinkout = computed((): string => {
 })
 
 const jumpToLocus = async () => {
-  const chrom = props.strucvar?.chrom == 'chrMT' ? 'chrM' : props.strucvar?.chrom
+  const chrom = igvChrom(props.strucvar?.chrom)
   // NB: we allow the call to fetch here as it goes to local IGV.
   await fetch(
     `http://127.0.0.1:60151/goto?locus=${chrom}:${props.strucvar?.start}-${svStop(props.strucvar!)}`

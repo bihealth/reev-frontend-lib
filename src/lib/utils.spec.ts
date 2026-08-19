@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { roundIt, separateIt } from './utils'
+import { igvChrom, roundIt, separateIt } from './utils'
 
 describe.concurrent('separateIt method', () => {
   it('should separate a positive value with default separator', () => {
@@ -50,5 +50,40 @@ describe('roundIt', () => {
     expect(roundIt(undefined, 2, 'the-label', 1.234567)).toEqual(
       "<abbr title='the-label: N/A'>1.23</abbr>"
     )
+  })
+})
+
+describe.concurrent('igvChrom method', () => {
+  it('should map all mitochondrial spellings to chrM', () => {
+    // arrange:
+    const chroms = ['MT', 'M', 'chrMT', 'chrM']
+
+    // act:
+    const results = chroms.map((chrom) => igvChrom(chrom))
+
+    // assert:
+    expect(results).toEqual(['chrM', 'chrM', 'chrM', 'chrM'])
+  })
+
+  it('should pass through other chromosomes unchanged', () => {
+    // arrange:
+    const chroms = ['1', 'chr1', 'X', 'chrX']
+
+    // act:
+    const results = chroms.map((chrom) => igvChrom(chrom))
+
+    // assert:
+    expect(results).toEqual(['1', 'chr1', 'X', 'chrX'])
+  })
+
+  it('should pass through undefined unchanged', () => {
+    // arrange:
+    const chrom = undefined
+
+    // act:
+    const result = igvChrom(chrom)
+
+    // assert:
+    expect(result).toBe(undefined)
   })
 })

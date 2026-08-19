@@ -3,6 +3,7 @@ import { computed } from 'vue'
 
 import { SeqvarInfoResult } from '../../api/annonars/types'
 import { type Seqvar } from '../../lib/genomicVars'
+import { igvChrom } from '../../lib/utils'
 import DocsLink from '../DocsLink/DocsLink.vue'
 
 /** This component's props. */
@@ -123,7 +124,7 @@ const franklinLinkout = computed<string>(() => {
 })
 
 const jumpToLocus = async () => {
-  const chrom = props.seqvar?.chrom == 'chrMT' ? 'chrM' : props.seqvar?.chrom
+  const chrom = igvChrom(props.seqvar?.chrom)
   // NB: we allow the call to fetch here as it goes to local IGV.
   await fetch(
     `http://127.0.0.1:60151/goto?locus=${chrom}:${props.seqvar?.pos}-${

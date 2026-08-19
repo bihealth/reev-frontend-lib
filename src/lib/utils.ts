@@ -61,3 +61,16 @@ export const roundIt = (
   const roundedValue = value.toFixed(digits)
   return `<abbr title="${useLabel}${value}">${roundedValue}</abbr>`
 }
+
+/**
+ * Normalizes the mitochondrial chromosome name to the `chrM` spelling expected by IGV.
+ *
+ * The chromosome names reaching us use any of the four spellings enumerated here, depending
+ * on the genome build and the source of the data.  Any other chromosome is passed through
+ * unchanged, as is `undefined`.
+ *
+ * @param chrom The chromosome name to normalize, if any.
+ * @returns the chromosome name to use in IGV loci
+ */
+export const igvChrom = (chrom: string | undefined): string | undefined =>
+  chrom !== undefined && ['MT', 'M', 'chrMT', 'chrM'].includes(chrom) ? 'chrM' : chrom
