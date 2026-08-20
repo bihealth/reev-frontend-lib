@@ -1,3 +1,5 @@
+import { type Strucvar } from './genomicVars'
+
 /**
  * Converts a number to a string with thousands separator.
  *
@@ -74,3 +76,26 @@ export const roundIt = (
  */
 export const igvChrom = (chrom: string | undefined): string | undefined =>
   chrom !== undefined && ['MT', 'M', 'chrMT', 'chrM'].includes(chrom) ? 'chrM' : chrom
+
+/**
+ * Builds the locus to send to IGV for the given structural variant.
+ *
+ * For breakends, both breakpoints are returned as a space-delimited list of loci, which makes
+ * IGV display them side by side in its multi-locus view.  All other types yield a single locus,
+ * spanning the whole variant for the linear types and the insertion point for insertions.
+ *
+ * @param strucvar The structural variant to build the locus for.
+ * @returns the locus to use with IGV's `goto` command
+ */
+export const igvLocus = (strucvar: Strucvar): string => {
+  if (strucvar.svType === 'BND') {
+    return (
+      `${igvChrom(strucvar.chrom)}:${strucvar.start}-${strucvar.start + 1} ` +
+      `${igvChrom(strucvar.chrom2)}:${strucvar.stop}-${strucvar.stop + 1}`
+    )
+  } else if (strucvar.svType === 'INS') {
+    return `${igvChrom(strucvar.chrom)}:${strucvar.start}-${strucvar.start + 1}`
+  } else {
+    return `${igvChrom(strucvar.chrom)}:${strucvar.start}-${strucvar.stop}`
+  }
+}
