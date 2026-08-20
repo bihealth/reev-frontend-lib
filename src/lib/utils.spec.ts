@@ -1,6 +1,43 @@
 import { describe, expect, it } from 'vitest'
 
-import { igvChrom, roundIt, separateIt } from './utils'
+import {
+  type BreakendStrucvar,
+  type InsertionStrucvar,
+  type LinearStrucvar,
+  StrandOrientation
+} from './genomicVars'
+import { igvChrom, igvLocus, roundIt, separateIt } from './utils'
+
+/** Example breakend structural variant, on two chromosomes. */
+const breakendStrucvar: BreakendStrucvar = {
+  svType: 'BND',
+  genomeBuild: 'grch38',
+  chrom: '1',
+  chrom2: '17',
+  start: 1000,
+  stop: 5000,
+  strandOrientation: StrandOrientation.THREE_TO_FIVE,
+  userRepr: 'BND-grch38-1-1000-17-5000-3to5'
+}
+
+/** Example linear structural variant. */
+const linearStrucvar: LinearStrucvar = {
+  svType: 'DEL',
+  genomeBuild: 'grch38',
+  chrom: '1',
+  start: 1000,
+  stop: 2000,
+  userRepr: 'DEL-grch38-1-1000-2000'
+}
+
+/** Example insertion structural variant. */
+const insertionStrucvar: InsertionStrucvar = {
+  svType: 'INS',
+  genomeBuild: 'grch38',
+  chrom: '1',
+  start: 1000,
+  userRepr: 'INS-grch38-1-1000'
+}
 
 describe.concurrent('separateIt method', () => {
   it('should separate a positive value with default separator', () => {
@@ -85,5 +122,66 @@ describe.concurrent('igvChrom method', () => {
 
     // assert:
     expect(result).toBe(undefined)
+  })
+})
+
+describe.concurrent('igvLocus method', () => {
+  it('should return both breakends of a translocation as two loci', () => {
+    // arrange:
+    const strucvar = breakendStrucvar
+
+    // act:
+    const result = igvLocus(strucvar)
+
+    // assert:
+    expect(result).toBe('1:1000-1001 17:5000-5001')
+  })
+
+  it('should return both breakends of a BND on a single chromosome', () => {
+    // arrange:
+    const strucvar: BreakendStrucvar = { ...breakendStrucvar, chrom2: '1', stop: 200000 }
+
+    // act:
+    const result = igvLocus(strucvar)
+
+    // assert:
+    expect(result).toBe('1:1000-1001 1:200000-200001')
+  })
+
+  it('should normalize the mitochondrial chromosome on both breakends', () => {
+    // arrange:
+    const strucvar: BreakendStrucvar = { ...breakendStrucvar, chrom: 'MT', chrom2: 'M' }
+
+    // act:
+    const result = igvLocus(strucvar)
+
+    // assert:
+    expect(result).toBe('chrM:1000-1001 chrM:5000-5001')
+  })
+
+  it('should return a single locus for a linear strucvar', () => {
+    // arrange:
+    const strucvars: LinearStrucvar[] = [
+      linearStrucvar,
+      { ...linearStrucvar, svType: 'DUP' },
+      { ...linearStrucvar, svType: 'INV' }
+    ]
+
+    // act:
+    const results = strucvars.map((strucvar) => igvLocus(strucvar))
+
+    // assert:
+    expect(results).toEqual(['1:1000-2000', '1:1000-2000', '1:1000-2000'])
+  })
+
+  it('should return a single locus for an insertion', () => {
+    // arrange:
+    const strucvar = insertionStrucvar
+
+    // act:
+    const result = igvLocus(strucvar)
+
+    // assert:
+    expect(result).toBe('1:1000-1001')
   })
 })

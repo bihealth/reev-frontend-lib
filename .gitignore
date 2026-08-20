@@ -29,6 +29,7 @@ coverage.lcov
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,pycharm,vim,emacs
 
 ### Emacs ###
+
 # -*- mode: gitignore; -*-
 *~
 \#*\#
@@ -235,3 +236,5 @@ tags
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,pycharm,vim,emacs
+
+CLAUDE.md

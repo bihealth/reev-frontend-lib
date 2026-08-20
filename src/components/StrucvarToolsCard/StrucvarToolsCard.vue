@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 
 import { type Strucvar } from '../../lib/genomicVars'
-import { igvChrom } from '../../lib/utils'
+import { igvLocus } from '../../lib/utils'
 import DocsLink from '../DocsLink/DocsLink.vue'
 
 /** The component's props. */
@@ -99,11 +99,8 @@ const franklinLinkout = computed((): string => {
 })
 
 const jumpToLocus = async () => {
-  const chrom = igvChrom(props.strucvar?.chrom)
   // NB: we allow the call to fetch here as it goes to local IGV.
-  await fetch(
-    `http://127.0.0.1:60151/goto?locus=${chrom}:${props.strucvar?.start}-${svStop(props.strucvar!)}`
-  ).catch((e) => {
+  await fetch(`http://127.0.0.1:60151/goto?locus=${igvLocus(props.strucvar!)}`).catch((e) => {
     const msg = "Couldn't connect to IGV. Please make sure IGV is running and try again."
     emit('error', msg)
     console.error(msg, e)
