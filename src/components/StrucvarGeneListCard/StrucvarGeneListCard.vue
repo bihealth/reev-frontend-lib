@@ -62,7 +62,7 @@ const hgncToEffect = computed<{ [key: string]: string }>(() => {
   const hgncToEffect: { [key: string]: string } = {}
   for (const result of props.csq ?? []) {
     const txEffect = result.transcriptEffects[0]
-    if (txEffect) {
+    if (txEffect && result.hgncId) {
       hgncToEffect[result.hgncId] = TX_EFFECT_LABELS[txEffect]
     }
   }

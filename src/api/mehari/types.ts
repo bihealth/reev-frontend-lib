@@ -171,8 +171,10 @@ export interface SeqvarResultEntry$Api {
   putative_impact: SeqvarPutativeImpact
   /** The gene symbol. */
   gene_symbol: string
-  /** The gene identifier. */
+  /** The gene identifier of the annotation, e.g., `"672"` for BRCA1 in RefSeq. */
   gene_id: string
+  /** The HGNC ID of the gene, `null` for genes without one. */
+  hgnc_id: string | null
   /** The feature type. */
   feature_type: string
   /** The feature identifier. */
@@ -209,8 +211,10 @@ export interface SeqvarResultEntry {
   putativeImpact: SeqvarPutativeImpact
   /** The gene symbol. */
   geneSymbol: string
-  /** The gene identifier. */
+  /** The gene identifier of the annotation, e.g., `"672"` for BRCA1 in RefSeq. */
   geneId: string
+  /** The HGNC ID of the gene, unset for genes without one. */
+  hgncId?: string
   /** The feature type. */
   featureType: string
   /** The feature identifier. */
@@ -248,6 +252,7 @@ class SeqvarResultEntry$Type {
       putativeImpact: json.putative_impact,
       geneSymbol: json.gene_symbol,
       geneId: json.gene_id,
+      hgncId: json.hgnc_id === null ? undefined : json.hgnc_id,
       featureType: json.feature_type,
       featureId: json.feature_id,
       featureBiotype: json.feature_biotype,
@@ -425,8 +430,8 @@ export enum TranscriptEffect {
  * Interface for one entry in the result as returned by API.
  */
 export interface GeneTranscriptEffects$Api {
-  /** HGNC identifier */
-  hgnc_id: string
+  /** HGNC identifier, `null` for genes without one. */
+  hgnc_id: string | null
   /** Transcript effects for the gene. */
   transcript_effects: TranscriptEffect[]
 }
@@ -435,8 +440,8 @@ export interface GeneTranscriptEffects$Api {
  * Explanation of transcript effect per individual gene.
  */
 export interface GeneTranscriptEffects {
-  /** HGNC identifier */
-  hgncId: string
+  /** HGNC identifier, unset for genes without one. */
+  hgncId?: string
   /** Transcript effects for the gene. */
   transcriptEffects: TranscriptEffect[]
 }
@@ -448,7 +453,7 @@ class GeneTranscriptEffects$Type {
   /** Convert `GeneTranscriptEffects$Api` to `GeneTranscriptEffects`. */
   fromJson(json: GeneTranscriptEffects$Api): GeneTranscriptEffects {
     return {
-      hgncId: json.hgnc_id,
+      hgncId: json.hgnc_id === null ? undefined : json.hgnc_id,
       transcriptEffects: json.transcript_effects
     }
   }
