@@ -121,6 +121,20 @@ describe('AnnonarsClient.fetchVariantInfo()', () => {
     expect(JSON.stringify(result)).toMatchSnapshot()
   })
 
+  it('parses dbSNP rs IDs beyond the int32 range', async () => {
+    // arrange:
+    const response = structuredClone(variantInfoBrca1Json)
+    response.result.dbsnp.rsId = 2_200_000_000
+    fetchMocker.mockResponseOnce(JSON.stringify(response))
+
+    // act:
+    const client = new AnnonarsClient()
+    const result = await client.fetchVariantInfo(seqvar)
+
+    // assert:
+    expect(result.result.dbsnp?.rsId).toBe(2_200_000_000)
+  })
+
   it('do removes chr prefix from chromosome if genome release is grch38', async () => {
     // arrange:
     fetchMocker.mockResponse((req) => {

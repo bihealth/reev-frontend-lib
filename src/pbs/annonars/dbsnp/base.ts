@@ -44,7 +44,7 @@ export interface Record {
   /**
    * / The rs ID.
    *
-   * @generated from protobuf field: int32 rs_id = 5;
+   * @generated from protobuf field: uint32 rs_id = 5;
    */
   rsId: number
 }
@@ -56,7 +56,7 @@ class Record$Type extends MessageType<Record> {
       { no: 2, name: 'pos', kind: 'scalar', T: 5 /*ScalarType.INT32*/ },
       { no: 3, name: 'ref_allele', kind: 'scalar', T: 9 /*ScalarType.STRING*/ },
       { no: 4, name: 'alt_allele', kind: 'scalar', T: 9 /*ScalarType.STRING*/ },
-      { no: 5, name: 'rs_id', kind: 'scalar', T: 5 /*ScalarType.INT32*/ }
+      { no: 5, name: 'rs_id', kind: 'scalar', T: 13 /*ScalarType.UINT32*/ }
     ])
   }
   create(value?: PartialMessage<Record>): Record {
@@ -92,8 +92,8 @@ class Record$Type extends MessageType<Record> {
         case /* string alt_allele */ 4:
           message.altAllele = reader.string()
           break
-        case /* int32 rs_id */ 5:
-          message.rsId = reader.int32()
+        case /* uint32 rs_id */ 5:
+          message.rsId = reader.uint32()
           break
         default:
           const u = options.readUnknownField
@@ -127,8 +127,8 @@ class Record$Type extends MessageType<Record> {
     if (message.refAllele !== '') writer.tag(3, WireType.LengthDelimited).string(message.refAllele)
     /* string alt_allele = 4; */
     if (message.altAllele !== '') writer.tag(4, WireType.LengthDelimited).string(message.altAllele)
-    /* int32 rs_id = 5; */
-    if (message.rsId !== 0) writer.tag(5, WireType.Varint).int32(message.rsId)
+    /* uint32 rs_id = 5; */
+    if (message.rsId !== 0) writer.tag(5, WireType.Varint).uint32(message.rsId)
     const u = options.writeUnknownFields
     if (u !== false) (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer)
     return writer
